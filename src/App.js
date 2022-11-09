@@ -6,6 +6,7 @@ import axios from "axios";
 function App() {
   const [location, setLocation] = useState();
   const [weatherDetails, setWeatherDetails] = useState();
+
   //Geolocation for long and lat
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
@@ -17,6 +18,7 @@ function App() {
   useEffect(() => {
     setLocation(coords);
   }, [coords]);
+
   //Axios for weather data
   const url =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -31,6 +33,13 @@ function App() {
       });
     }
   }, [coords]);
+
+  //Convert current time to 12 hour clock
+  const current = new Date();
+  const time = current.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return !isGeolocationAvailable ? (
     <div>
@@ -48,7 +57,7 @@ function App() {
         {weatherDetails?.coord.lat.toFixed(2)}°N,{" "}
         {weatherDetails?.coord.lon.toFixed(2)}°E
       </p>
-      <p>Time right now: 12:30pm</p>
+      <p>{time}</p>
       <h1>{Math.round(weatherDetails?.main.temp - 273.15)}°C</h1>
       <p>Humidity: {weatherDetails?.main.humidity}%</p>
       <p>Wind speed: 12MPH</p>
