@@ -1,0 +1,31 @@
+{
+  "coord": { "lon": 3.326, "lat": 6.5569 },
+  "weather": [
+    {
+      "id": 802,
+      "main": "Clouds",
+      "description": "scattered clouds",
+      "icon": "03n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 300.98,
+    "feels_like": 304,
+    "temp_min": 300.98,
+    "temp_max": 300.98,
+    "pressure": 1011,
+    "humidity": 74,
+    "sea_level": 1011,
+    "grnd_level": 1009
+  },
+  "visibility": 10000,
+  "wind": { "speed": 4.05, "deg": 213, "gust": 5.69 },
+  "clouds": { "all": 42 },
+  "dt": 1667952133,
+  "sys": { "country": "NG", "sunrise": 1667972101, "sunset": 1668014764 },
+  "timezone": 3600,
+  "id": 2566677,
+  "name": "Shogunle",
+  "cod": 200
+}
