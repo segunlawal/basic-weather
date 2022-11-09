@@ -52,16 +52,19 @@ function App() {
     </div>
   ) : coords ? (
     <div className="app">
-      <h2>Lagos</h2>
+      <h2>{weatherDetails?.name}</h2>
       <p>
         {weatherDetails?.coord.lat.toFixed(2)}°N,{" "}
         {weatherDetails?.coord.lon.toFixed(2)}°E
       </p>
       <p>{time}</p>
       <h1>{Math.round(weatherDetails?.main.temp - 273.15)}°C</h1>
+      <p>feels like {Math.round(weatherDetails?.main.feels_like - 273.15)}°C</p>
       <p>Humidity: {weatherDetails?.main.humidity}%</p>
-      <p>Wind speed: 12MPH</p>
-      <h3>It will rain! Use an umbrella!!</h3>
+      <p>Wind speed: {weatherDetails?.wind.speed}MPH</p>
+      <h5>{weatherDetails?.weather[0].main}</h5>
+      <h6>{weatherDetails?.weather[0].description}</h6>
+      {/* <h3>It will rain! Use an umbrella!!</h3> */}
     </div>
   ) : (
     <div>Getting the location data&hellip; </div>
